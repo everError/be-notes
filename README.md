@@ -17,5 +17,6 @@
 │   ├── jwt.md            # JWT(Json Web Token)에 대한 설명
 ├── experiments/          # 실습 프로젝트 디렉토리
 │   ├── README.md         # 실습 프로젝트 소개
+│   ├── services/         # 실습 프로젝트
 └── README.md             # 레포지토리 소개 및 목적
 ```
