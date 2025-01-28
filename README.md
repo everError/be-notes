@@ -13,10 +13,11 @@
 
 ```
 .
-├── notes/                # 기술 설명 및 학습 내용 정리
-│   ├── jwt.md            # JWT(Json Web Token)에 대한 설명
-├── experiments/          # 실습 프로젝트 디렉토리
-│   ├── README.md         # 실습 프로젝트 소개
-│   ├── services/         # 실습 프로젝트
-└── README.md             # 레포지토리 소개 및 목적
+├── notes/                              # 기술 설명 및 학습 내용 정리
+│   ├── jwt.md                          # JWT(Json Web Token)에 대한 설명
+│   ├── dotnet_aspire.md                # .Net Aspire에 대한 설명
+├── experiments/
+│   ├── README.md                       # 실습 프로젝트 소개
+│   ├── services/                       # 실습 프로젝트
+└── README.md
 ```
