@@ -1,10 +1,11 @@
-﻿using auth_service.Handlers;
+﻿using auth_service.Attributes;
+using auth_service.Handlers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace auth_service.Api;
 
-[Route("api/token")]
 [ApiController]
+[AuthRoute("token")]
 public class TokenController : ControllerBase
 {
     public TokenController() { }

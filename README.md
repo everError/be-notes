@@ -6,18 +6,22 @@
 
 ## 목적
 
-1. **학습 기록**: .NET, EF Core, API 개발 등 다양한 기술에 대한 학습 내용을 정리합니다.
+1. **학습 기록**: .NET, EF Core, API 개발, MSA(Microservices Architecture) 등 다양한 기술에 대한 학습 내용을 정리합니다.
 2. **실습 프로젝트**: 이론적으로 배운 기술을 실제로 구현해보고 익히는 공간을 제공합니다.
 
 ## 디렉토리 구조
 
 ```
 .
-├── notes/                              # 기술 설명 및 학습 내용 정리
-│   ├── jwt.md                          # JWT(Json Web Token)에 대한 설명
-│   ├── dotnet_aspire.md                # .Net Aspire에 대한 설명
+├── notes/                                      # 기술 설명 및 학습 내용 정리
+│   ├── jwt.md                                  # JWT(Json Web Token)에 대한 설명
+│   ├── dotnet_aspire.md                        # .Net Aspire에 대한 설명
+│   ├── msa.md                                  # MSA(Microservices Architecture)에 대한 설명
 ├── experiments/
-│   ├── README.md                       # 실습 프로젝트 소개
-│   ├── services/                       # 실습 프로젝트
+│   ├── README.md                               # 실습 프로젝트 소개
+│   ├── services/                               # 실습 프로젝트
+│   ├── notes/                                  # 실험적인 학습 내용 정리
+│   │   ├── ocelot_vs_yarp.md                   # Ocelot과 YARP 비교 정리
+│   │   ├── reverse_proxy_vs_api_gateway.md     # ReverseProxy와 ApiGateway 비교 정리
 └── README.md
 ```
