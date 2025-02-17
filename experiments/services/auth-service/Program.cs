@@ -26,5 +26,6 @@ app.UseRouting();
 app.UseAuthentication()
     .UseAuthorization(); // JWT 인증 또는 기타 인증 미들웨어 적용
 app.MapControllers();
+app.UseWebSockets();
 
 app.Run();
