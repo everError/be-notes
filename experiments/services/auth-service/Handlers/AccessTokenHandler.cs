@@ -1,6 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace auth_service.Handlers;
@@ -53,6 +54,18 @@ public sealed class AccessTokenHandler
 
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
+    }
+    /// <summary>
+    /// Refresh Token을 생성 (고유하고 예측 불가능한 값 생성)
+    /// </summary>
+    public string GenerateRefreshToken()
+    {
+        var randomNumber = new byte[32]; // 256비트 (32바이트) 난수 생성
+        using (var rng = RandomNumberGenerator.Create())
+        {
+            rng.GetBytes(randomNumber);
+        }
+        return Convert.ToBase64String(randomNumber); // Base64 인코딩하여 문자열로 변환
     }
 
     /// <summary>
