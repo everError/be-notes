@@ -22,6 +22,7 @@
 │   ├── dotnet_aspire.md                        # .Net Aspire에 대한 설명
 │   ├── msa.md                                  # MSA(Microservices Architecture)에 대한 설명
 │   ├── websocket.md                            # WebSocket에 대한 설명
+│   ├── redis.md                                # redis 정리
 ├── experiments/
 │   ├── README.md                               # 실습 프로젝트 소개
 │   ├── services/                               # 실습 프로젝트
@@ -29,6 +30,5 @@
 │   │   ├── ocelot_vs_yarp.md                   # Ocelot과 YARP 비교 정리
 │   │   ├── reverse_proxy_vs_api_gateway.md     # ReverseProxy와 ApiGateway 비교 정리
 │   │   ├── websocket_reference.md              # WebSocket 사용
-│   │   ├── redis.md                            # redis 정리
 └── README.md
 ```
