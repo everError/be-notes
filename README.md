@@ -11,7 +11,7 @@
 
 ### 개발
 
-- [.Net8](./experiments/services/)
+- [.Net8](./experiments/)
 
 ## 디렉토리 구조
 
