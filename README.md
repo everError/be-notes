@@ -33,5 +33,6 @@
 │   │   ├── redlock.md                          # Redlock
 │   │   ├── concurrent_update_handling.md       # 대규모 트래픽 환경에서 공유 자원 업데이트 처리 전략
 │   │   ├── channel.md                          # Channel
+│   │   ...
 └── README.md
 ```
