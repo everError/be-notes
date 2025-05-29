@@ -29,11 +29,11 @@ subscriber.Subscribe(RedisChannel.Literal("refresh_token_events"), (channel, mes
 });
 
 
-//if (app.Environment.IsDevelopment())
-//{
-app.UseSwagger(); // 개발 환경에서 Swagger JSON 문서 활성화
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger(); // 개발 환경에서 Swagger JSON 문서 활성화
     app.UseSwaggerUI(); // Swagger UI를 통해 API 문서를 웹 UI로 확인 가능
-//}
+}
 
 app.UseRouting();
 app.UseAuthentication()

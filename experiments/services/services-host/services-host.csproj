@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\auth-service\auth-service.csproj" />
+    <ProjectReference Include="..\data-service\data-service.csproj" />
     <ProjectReference Include="..\gateway-service\gateway-service.csproj" />
   </ItemGroup>
 

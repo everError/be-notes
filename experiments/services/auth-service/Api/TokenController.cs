@@ -7,16 +7,10 @@ namespace auth_service.Api;
 
 [ApiController]
 [AuthRoute("token")]
-public class TokenController : ControllerBase
+public class TokenController(IConnectionMultiplexer redis) : ControllerBase
 {
-    private readonly IDatabase _redisDb;
-    private readonly ISubscriber _redisPubSub;
-
-    public TokenController(IConnectionMultiplexer redis)
-    {
-        _redisDb = redis.GetDatabase();
-        _redisPubSub = redis.GetSubscriber(); // Pub/Sub을 위한 Redis 구독자
-    }
+    private readonly IDatabase _redisDb = redis.GetDatabase();
+    private readonly ISubscriber _redisPubSub = redis.GetSubscriber();
 
     /// <summary>
     /// Access Token 및 Refresh Token 발급 (Redis 저장 + Pub/Sub 이벤트)
