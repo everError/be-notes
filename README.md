@@ -30,7 +30,10 @@
 ├── experiments/
 │   ├── README.md                               # 실습 프로젝트 소개
 │   ├── services/                               # 실습 프로젝트
+│   ├── clients/                                # 실습 프로젝트 호출 샘플(테스트 용도)
 │   ├── notes/                                  # 실험적인 학습 내용 정리
+│   │   ├── concurrency-control/                # 동시성 충돌 처리 관련 정리 dir
+│   │   ├── ...
 │   │   ├── ocelot_vs_yarp.md                   # Ocelot과 YARP 비교 정리
 │   │   ├── reverse_proxy_vs_api_gateway.md     # ReverseProxy와 ApiGateway 비교 정리
 │   │   ├── websocket_reference.md              # WebSocket 사용
