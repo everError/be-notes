@@ -1,44 +1,31 @@
-# DotNet Notes
+# BE Notes
 
 ## 소개
 
-이 레포지토리는 .NET과 EF Core 등을 활용하여 API 백엔드 서버를 개발하며 학습한 내용을 기록하기 위해 만들어졌습니다. 기술에 대한 설명과 실습 프로젝트를 체계적으로 정리하여 학습의 깊이를 더하고, 필요 시 참조할 수 있는 지침서로 활용하고자 합니다.
+이 저장소는 다양한 백엔드 기술(.NET, Spring, Node.js 등), 인프라, 데이터베이스, 시스템 아키텍처, DevOps 등 백엔드 개발과 실험, 학습 내용을 체계적으로 정리하는 공간입니다.
 
-## 목적
+- 주요 프레임워크별 실습 및 아키텍처 비교, 문제 해결 경험, 실무 노하우를 기록합니다.
+- 폴더별로 언어나 프레임워크, 공통 노트 등 카테고리화하여, 나중에 참고 가능한 레퍼런스를 구축하는 것이 목표입니다.
 
-1. **학습 기록**: .NET, EF Core, API 개발, MSA(Microservices Architecture) 등 다양한 기술에 대한 학습 내용을 정리합니다.
-2. **실습 프로젝트**: 이론적으로 배운 기술을 실제로 구현해보고 익히는 공간을 제공합니다.
+---
 
-### 개발
-
-- [.Net8](./experiments/)
+1. [.NET](./dotnet/)
+2. [Spring](./spring/)
 
 ## 디렉토리 구조
 
 ```
-.
-├── notes/                                      # 기술 설명 및 학습 내용 정리
-│   ├── jwt.md                                  # JWT(Json Web Token)에 대한 설명
-│   ├── dotnet_aspire.md                        # .Net Aspire에 대한 설명
-│   ├── msa.md                                  # MSA(Microservices Architecture)에 대한 설명
-│   ├── websocket.md                            # WebSocket에 대한 설명
-│   ├── redis.md                                # redis 정리
-│   ├── redlock.md                              # Redlock
-│   ├── concurrent_update_handling.md           # 대규모 트래픽 환경에서 공유 자원 업데이트 처리 전략
-│   ├── channel.md                              # Channel
-│   │   ...
-├── experiments/
-│   ├── README.md                               # 실습 프로젝트 소개
-│   ├── services/                               # 실습 프로젝트
-│   ├── clients/                                # 실습 프로젝트 호출 샘플(테스트 용도)
-│   ├── notes/                                  # 실험적인 학습 내용 정리
-│   │   ├── concurrency-control/                # 동시성 충돌 처리 관련 정리 dir
-│   │   ├── ...
-│   │   ├── ocelot_vs_yarp.md                   # Ocelot과 YARP 비교 정리
-│   │   ├── reverse_proxy_vs_api_gateway.md     # ReverseProxy와 ApiGateway 비교 정리
-│   │   ├── websocket_reference.md              # WebSocket 사용
-|   |   ├── dev/                                # 여러 도구 개발 예시
-|   |   |
-│   │   ...
+be-notes/
+├── dotnet/           # .NET, EF Core 등 닷넷 백엔드 정리 및 실습
+├── spring/           # Spring, Spring Boot, Java/Kotlin 백엔드 정리 및 실습
+├── notes/            # 공통 백엔드 이론, DB, 아키텍처 등 범용 노트
 └── README.md
 ```
+
+---
+
+## 활용
+
+- 언어/프레임워크별로 실험, 실습, 아키텍처 설계 및 문제 해결 기록
+- 실무 및 학습에서 마주친 다양한 백엔드 이슈, 공통 설계 지침을 notes/에 별도 정리
+- 지속적으로 확장하며, 각 폴더별 README에서 상세 사용법과 분류 기준 관리
