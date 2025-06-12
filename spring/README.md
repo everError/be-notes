@@ -21,6 +21,8 @@
 
 ```
 spring/
-├── README.md                # 폴더 안내
+├── springboot3                         # springboot 실습
+├── notes                               # 개념 정리
+├── README.md                           # 폴더 안내
 └── ...
 ```
