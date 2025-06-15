@@ -1,0 +1,4 @@
+jwt:
+  secret: bXktdmVyeS1zZWN1cmUtc2VjcmV0LWtleS13aGljaC1pcy0zMi1ieXRlcyE=
+  access-expiration: 3600000
+  refresh-expiration: 604800000
