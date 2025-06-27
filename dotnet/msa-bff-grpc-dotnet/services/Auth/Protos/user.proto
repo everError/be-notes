@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option csharp_namespace = "Auth";
+
+import "google/protobuf/empty.proto";
+
+package user;
+
+service UserService {
+  rpc AddUser (UserRequest) returns (UserReply);
+  rpc GetUsers (google.protobuf.Empty) returns (UserList);
+  rpc SeedUsers (SeedUsersRequest) returns (SeedUsersReply);
+}
+
+message UserRequest {
+  string name = 1;
+  string email = 2;
+}
+
+message UserReply {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message UserList {
+  repeated UserReply users = 1;
+}
+
+message SeedUsersRequest {
+  int32 count = 1;
+}
+
+message SeedUsersReply {
+  int32 inserted = 1;
+}

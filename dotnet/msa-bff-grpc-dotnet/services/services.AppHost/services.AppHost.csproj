@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AuthBff\AuthBff.csproj" />
+    <ProjectReference Include="..\AuthHttp\AuthHttp.csproj" />
     <ProjectReference Include="..\Auth\Auth.csproj" />
   </ItemGroup>
 

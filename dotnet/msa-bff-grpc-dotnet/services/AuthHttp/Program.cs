@@ -1,18 +1,15 @@
 using Auth.Data;
-using Auth.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddGrpc();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source=users.db"));
+    options.UseSqlite("Data Source=../Auth/users.db"));
 
 var app = builder.Build();
 
-app.MapGrpcService<GreeterService>();
-app.MapGrpcService<UserService>();
-
+app.MapControllers();
 app.MapGet("/", () => "This server supports gRPC and REST endpoints.");
-
 app.Run();

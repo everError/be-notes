@@ -17,3 +17,14 @@ obj/
 
 # Visual Studio
 .vs/
+
+# ⛔ 모든 SQLite 파일 무시
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.sqlite
+**/*.sqlite3
+**/*.s3db
+**/*.db3
+**/*.sqlite-journal
+**/Migrations/

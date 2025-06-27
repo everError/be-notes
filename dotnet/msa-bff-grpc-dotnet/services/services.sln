@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "services.AppHost", "service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "Auth\Auth.csproj", "{334F3B23-EFE8-6F1A-5E5F-9A2275D56E28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthBff", "AuthBff\AuthBff.csproj", "{81CBD592-49D0-C80C-B9BF-E79FB4819D62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthHttp", "AuthHttp\AuthHttp.csproj", "{08A3E4C6-AB6A-EBBD-D255-D7D8C5E137D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{334F3B23-EFE8-6F1A-5E5F-9A2275D56E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{334F3B23-EFE8-6F1A-5E5F-9A2275D56E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{334F3B23-EFE8-6F1A-5E5F-9A2275D56E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81CBD592-49D0-C80C-B9BF-E79FB4819D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CBD592-49D0-C80C-B9BF-E79FB4819D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CBD592-49D0-C80C-B9BF-E79FB4819D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CBD592-49D0-C80C-B9BF-E79FB4819D62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A3E4C6-AB6A-EBBD-D255-D7D8C5E137D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A3E4C6-AB6A-EBBD-D255-D7D8C5E137D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A3E4C6-AB6A-EBBD-D255-D7D8C5E137D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A3E4C6-AB6A-EBBD-D255-D7D8C5E137D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
