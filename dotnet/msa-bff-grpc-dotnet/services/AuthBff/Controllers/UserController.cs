@@ -1,6 +1,8 @@
-﻿using Google.Protobuf.WellKnownTypes;
+﻿using Auth;
+using AuthBff.Backgrounds.User;
+using Google.Protobuf.WellKnownTypes;
+using Grpc.Core;
 using Microsoft.AspNetCore.Mvc;
-using Auth;
 
 namespace AuthBff.Controllers;
 
@@ -37,5 +39,34 @@ public class UserController(UserService.UserServiceClient grpcClient, IHttpClien
     {
         await _httpClient.DeleteAsync("api/UserHttp");
         return Ok();
+    }
+
+    [HttpGet("stream")]
+    public async IAsyncEnumerable<UserReply> StreamUsers()
+    {
+        using var call = _grpcClient.StreamUsers(new Empty());
+
+        await foreach (var user in call.ResponseStream.ReadAllAsync())
+        {
+            yield return user;
+        }
+    }
+    [HttpPost("send")]
+    public async Task<IActionResult> SendName([FromBody] GetUserByNameRequest request)
+    {
+        if (ChatStreamBridge.RequestStream is null)
+            return StatusCode(503, "Stream not ready");
+
+        await ChatStreamBridge.RequestStream.WriteAsync(request);
+        return Ok(new { status = "sent" });
+    }
+
+    [HttpGet("receive")]
+    public IActionResult ReceiveResponse()
+    {
+        if (ChatStreamBridge.ResponseQueue.TryDequeue(out var reply))
+            return Ok(reply);
+
+        return NoContent();
     }
 }

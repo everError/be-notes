@@ -10,6 +10,16 @@ service UserService {
   rpc AddUser (UserRequest) returns (UserReply);
   rpc GetUsers (google.protobuf.Empty) returns (UserList);
   rpc SeedUsers (SeedUsersRequest) returns (SeedUsersReply);
+  rpc StreamUsers (google.protobuf.Empty) returns (stream UserReply);
+  rpc ChatUsersByName (stream GetUserByNameRequest) returns (stream GetUserByNameReply);
+}
+
+message GetUserByNameRequest {
+  string name = 1;
+}
+
+message GetUserByNameReply {
+  repeated UserReply users = 1;
 }
 
 message UserRequest {

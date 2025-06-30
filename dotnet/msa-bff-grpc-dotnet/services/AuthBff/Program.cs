@@ -1,4 +1,5 @@
 using Auth;
+using AuthBff.Backgrounds.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddHttpClient("UserApi", client =>
 {
     client.BaseAddress = new Uri("http://localhost:5073");
 });
+builder.Services.AddHostedService<UserStreamService>();
 
 var app = builder.Build();
 app.UseSwagger();

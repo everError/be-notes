@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Auth;
+﻿using Auth;
 using Google.Protobuf.WellKnownTypes;
-using System.Diagnostics;
+using Grpc.Core;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 
 namespace AuthBff.Controllers;
 
@@ -117,6 +118,47 @@ public class BenchmarkController(UserService.UserServiceClient grpcClient, IHttp
         {
             gRPC_결과 = BuildKoreanMetrics(grpcTimes, grpcSizes),
             HTTP_결과 = BuildKoreanMetrics(httpTimes, httpSizes)
+        });
+    }
+    [HttpPost("streaming")]
+    public async Task<IActionResult> BenchmarkStreaming([FromBody] List<string> names)
+    {
+        var times = new List<double>();
+        var sizes = new List<long>();
+
+        var stopwatchTotal = Stopwatch.StartNew();
+
+        using var call = _grpcClient.ChatUsersByName();
+
+        // 응답 읽기 태스크
+        var receiveTask = Task.Run(async () =>
+        {
+            await foreach (var reply in call.ResponseStream.ReadAllAsync())
+            {
+                // 응답 받은 시점 기준
+                sizes.Add(reply.CalculateSize());
+            }
+        });
+
+        // 요청 보내기 (타이밍 측정)
+        foreach (var name in names)
+        {
+            var sw = Stopwatch.StartNew();
+            await call.RequestStream.WriteAsync(new GetUserByNameRequest { Name = name });
+            sw.Stop();
+            times.Add(sw.Elapsed.TotalMilliseconds);
+        }
+
+        await call.RequestStream.CompleteAsync();
+        await receiveTask;
+
+        stopwatchTotal.Stop();
+
+        return Ok(new
+        {
+            총_요청_수 = names.Count,
+            총_시간_ms = stopwatchTotal.ElapsedMilliseconds,
+            결과_메트릭 = BuildKoreanMetrics(times, sizes)
         });
     }
 
