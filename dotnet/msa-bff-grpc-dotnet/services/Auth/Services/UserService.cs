@@ -10,6 +10,48 @@ public class UserService(AppDbContext context) : Auth.UserService.UserServiceBas
 {
     private readonly AppDbContext _context = context;
 
+    public override async Task ChatUsersByName(
+        IAsyncStreamReader<GetUserByNameRequest> requestStream,
+        IServerStreamWriter<GetUserByNameReply> responseStream,
+        ServerCallContext context)
+    {
+        await foreach (var request in requestStream.ReadAllAsync())
+        {
+            var matchedUsers = await _context.Users
+                .Where(u => u.Name.Contains(request.Name))
+                .ToListAsync();
+
+            var reply = new GetUserByNameReply();
+            reply.Users.AddRange(matchedUsers.Select(user => new UserReply
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email
+            }));
+
+            await responseStream.WriteAsync(reply);
+        }
+    }
+
+
+
+    public override async Task StreamUsers(Empty request, IServerStreamWriter<UserReply> responseStream, ServerCallContext context)
+    {
+        var users = await _context.Users.ToListAsync();
+
+        foreach (var user in users)
+        {
+            var reply = new UserReply
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email
+            };
+
+            await responseStream.WriteAsync(reply);
+        }
+    }
+
     public override async Task<UserReply> AddUser(UserRequest request, ServerCallContext context)
     {
         var user = new User { Name = request.Name, Email = request.Email };
@@ -26,18 +68,19 @@ public class UserService(AppDbContext context) : Auth.UserService.UserServiceBas
 
     public override async Task<UserList> GetUsers(Empty request, ServerCallContext context)
     {
-        var users = await _context.Users.Select(u => new UserReply
-        {
-            Id = u.Id,
-            Name = u.Name,
-            Email = u.Email
-        }).ToListAsync();
+        var users = await _context.Users.ToListAsync();
 
         var list = new UserList();
-        list.Users = users;
+        list.Users.AddRange(users.Select(user => new UserReply
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email
+        }));
 
         return list;
     }
+
 
     public override async Task<SeedUsersReply> SeedUsers(SeedUsersRequest request, ServerCallContext context)
     {
