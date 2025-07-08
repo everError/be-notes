@@ -17,22 +17,28 @@
 
 ---
 
+### Notes
+
+- [트랜잭션 및 SaveChanges 재시도를 위한 Attribute 기반 구조 설계](./notes/concurrency-control/Transaction%20SaveRetry%20Attribute.md)
+
+---
+
 ## 디렉토리 구조
 
 ```
 
 dotnet/
-├── msa-webapi-dotnet/                 # 실험/실습 프로젝트 및 클라이언트 샘플
-│   ├── clients/                       # API 호출 등 테스트용 클라이언트
-│   ├── services/                      # 실습용 서비스 프로젝트
+├── msa-webapi-dotnet/                             # 실험/실습 프로젝트 및 클라이언트 샘플
+│   ├── clients/                                   # API 호출 등 테스트용 클라이언트
+│   ├── services/                                  # 실습용 서비스 프로젝트
 │   ├── .gitignore
-│   └── README.md                      # experiments 폴더 안내
-├── msa-webapi-dotnet/                 # 실험/실습 프로젝트 및 클라이언트 샘플
-├── notes/                             # 주요 기술/이슈 정리
-│   ├── concurrency-control/           # 동시성 제어 관련 정리
-│   ├── EF Core/                       # EF Core 관련 정리
-│   ├── issues/                        # 트러블슈팅/이슈 정리
-│   ├── Test/                          # 테스트 관련 정리
+│   └── README.md                                  # experiments 폴더 안내
+├── msa-webapi-dotnet/                             # 실험/실습 프로젝트 및 클라이언트 샘플
+├── notes/                                         # 주요 기술/이슈 정리
+│   ├── concurrency-control/                       # 동시성 제어 관련 정리
+│   ├── EF Core/                                   # EF Core 관련 정리
+│   ├── issues/                                    # 트러블슈팅/이슈 정리
+│   ├── Test/                                      # 테스트 관련 정리
 │   ├── Aspire MSA Multi Instance.md
 │   ├── channel.md
 │   ├── dotnet\_aspire.md
