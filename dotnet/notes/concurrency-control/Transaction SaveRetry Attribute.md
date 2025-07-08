@@ -349,7 +349,7 @@ public class SaveRetryProxy<T> : DispatchProxy where T : class
 
 ---
 
-## ✅ 고려 사항 (수정됨)
+## ✅ 고려 사항
 
 - `SaveRetryAttribute`가 여러 개 선언된 경우 **중복되지 않는 DbContext들 각각에 대해 트랜잭션과 저장을 별도로 수행**
 - 모든 트랜잭션은 재시도 루프 안에서 명확하게 커밋 또는 롤백 처리되어야 함
