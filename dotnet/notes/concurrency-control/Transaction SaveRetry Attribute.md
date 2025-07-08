@@ -47,14 +47,23 @@ public sealed class SaveRetryAttribute : Attribute
 ```csharp
 public class SaveRetryInterceptor : Interceptor
 {
+    public static TAttribute? ResolveMethodAttribute<TAttribute>(ServerCallContext context)
+        where TAttribute : Attribute
+    {
+        var httpContext = context.GetHttpContext();
+        var endpoint = httpContext?.GetEndpoint();
+        if (endpoint == null) return null;
+
+        return endpoint.Metadata.GetMetadata<TAttribute>();
+    }
     public override async Task<TResponse> UnaryServerHandler<TRequest, TResponse>(
         TRequest request,
         ServerCallContext context,
         UnaryServerMethod<TRequest, TResponse> continuation)
     {
-        var method = ResolveMethodInfo(context);
-        var attr = method?.GetCustomAttribute<SaveRetryAttribute>();
-        if (attr == null) return await continuation(request, context);
+        var attr = MethodResolver.ResolveMethodAttribute<SaveRetryAttribute>(context);
+        if (attr == null)
+            return await continuation(request, context);
 
         var services = context.GetHttpContext()?.RequestServices;
         var dbContext = services?.GetService(attr.DbContextType) as DbContext;
