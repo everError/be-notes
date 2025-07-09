@@ -92,13 +92,10 @@ public class RecordsController(AppDbContext db) : ControllerBase
             }
             catch (DbUpdateConcurrencyException)
             {
-                        // 저장 실패 시 변경내용 무효화 후 재시도
+                // 저장 실패 시 변경내용 무효화 후 재시도
                 foreach (var entry in _db.ChangeTracker.Entries())
                 {
-                    if (entry.State == EntityState.Modified)
-                    {
-                        await entry.ReloadAsync(); // DB 값으로 다시 로드
-                    }
+                    await entry.ReloadAsync(); // DB 값으로 다시 로드
                 }
             }
         }

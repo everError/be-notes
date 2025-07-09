@@ -145,10 +145,14 @@ public class SaveRetryInterceptor : Interceptor
                     {
                         var dbValues = await entry.GetDatabaseValuesAsync();
                         if (dbValues == null) throw;
-                        entry.OriginalValues.SetValues(dbValues);
+                        await entry.ReloadAsync();
+                    }
+                    foreach (var db in dbContexts)
+                    {
+                        db.ChangeTracker.Clear();
                     }
                     lastException = ex;
-                    await Task.Delay(10);
+                    await Task.Yield();
                 }
                 catch (Exception)
                 {
@@ -232,10 +236,14 @@ public class SaveRetryFilter : IAsyncActionFilter
                     {
                         var dbValues = await entry.GetDatabaseValuesAsync();
                         if (dbValues == null) throw;
-                        entry.OriginalValues.SetValues(dbValues);
+                        await entry.ReloadAsync();
+                    }
+                    foreach (var db in dbContexts)
+                    {
+                        db.ChangeTracker.Clear();
                     }
                     lastException = ex;
-                    await Task.Delay(10);
+                    await Task.Yield();
                 }
                 catch (Exception)
                 {
@@ -317,8 +325,13 @@ public class SaveRetryProxy<T> : DispatchProxy where T : class
                 {
                     var dbValues = entry.GetDatabaseValues();
                     if (dbValues == null) throw;
-                    entry.OriginalValues.SetValues(dbValues);
+                    await entry.ReloadAsync();
                 }
+                foreach (var db in dbContexts)
+                {
+                    db.ChangeTracker.Clear();
+                }
+                lastException = ex;
                 Thread.Sleep(10);
             }
             catch (Exception)
