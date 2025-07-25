@@ -22,6 +22,7 @@
 - [트랜잭션 및 SaveChanges 재시도를 위한 Attribute 기반 구조 설계](./notes/concurrency-control/Transaction%20SaveRetry%20Attribute.md)
 - [개발 이슈](./notes/issues/)
 - [EFCore](./notes/EF%20Core/)
+- [ASP.NET Core 의존성 주입(DI) 서비스 생명주기](<./notes/ASP.Net%20Core%20의존성%20주입(DI)%20서비스%20생명주기.md>)
 
 ---
 
