@@ -23,7 +23,7 @@ public class AuthRoute : Attribute, IRouteTemplateProvider
     /// <summary>
     /// 라우트 이름 설정 가능
     /// </summary>
-    public string? Name { get; set; } = string.Empty;
+    public string? Name { get; set; } = default;
 
     /// <summary>
     /// 기본 생성자: "api/auth"만 적용
