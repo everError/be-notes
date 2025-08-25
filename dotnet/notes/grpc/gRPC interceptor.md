@@ -12,7 +12,7 @@
   public override Task<TResponse> UnaryServerHandler<TRequest, TResponse>(
       TRequest request,
       ServerCallContext context,
-      UnaryServerHandler<TRequest, TResponse> continuation)
+      UnaryServerMethod<TRequest, TResponse> continuation)
   ```
 
 ---
@@ -31,7 +31,7 @@
   public override Task<TResponse> ClientStreamingServerHandler<TRequest, TResponse>(
       IAsyncStreamReader<TRequest> requestStream,
       ServerCallContext context,
-      ClientStreamingServerHandler<TRequest, TResponse> continuation)
+      ClientStreamingServerMethod<TRequest, TResponse> continuation)
   ```
 
 ---
@@ -51,7 +51,7 @@
       TRequest request,
       IServerStreamWriter<TResponse> responseStream,
       ServerCallContext context,
-      ServerStreamingServerHandler<TRequest, TResponse> continuation)
+      ServerStreamingServerMethod<TRequest, TResponse> continuation)
   ```
 
 ---
@@ -71,7 +71,7 @@
       IAsyncStreamReader<TRequest> requestStream,
       IServerStreamWriter<TResponse> responseStream,
       ServerCallContext context,
-      DuplexStreamingServerHandler<TRequest, TResponse> continuation)
+      DuplexStreamingServerMethod<TRequest, TResponse> continuation)
   ```
 
 ---
