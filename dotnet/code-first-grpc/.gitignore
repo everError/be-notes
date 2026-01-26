@@ -1,0 +1,75 @@
+# =========================
+# .NET / Visual Studio
+# =========================
+bin/
+obj/
+.vs/
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+
+# =========================
+# Build outputs
+# =========================
+**/bin/
+**/obj/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# NuGet
+# =========================
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# =========================
+# gRPC / Protobuf
+# =========================
+
+# protoc / generated code (if any)
+**/*.pb.cs
+
+# =========================
+# Secrets / Environment
+# =========================
+appsettings.Development.json
+appsettings.Local.json
+.env
+.env.*
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# =========================
+# Test results
+# =========================
+TestResults/
+coverage/
+coverage.xml
+
+# =========================
+# Temporary / Backup
+# =========================
+*.tmp
+*.bak
+*.swp

@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Bff/Bff.csproj" />
+  <Project Path="CodeFirstGrpc.AppHost/CodeFirstGrpc.AppHost.csproj" />
+  <Project Path="CodeFirstGrpc.ServiceDefaults/CodeFirstGrpc.ServiceDefaults.csproj" />
+  <Project Path="Contracts/Contracts.csproj" />
+  <Project Path="Proto/Proto.csproj" />
+  <Project Path="UserService/UserService.csproj" />
+</Solution>
