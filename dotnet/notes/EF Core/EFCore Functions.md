@@ -1,4 +1,4 @@
-# EF.Functions 완벽 가이드
+# EF.Functions 가이드
 
 ## 1. 개요
 
